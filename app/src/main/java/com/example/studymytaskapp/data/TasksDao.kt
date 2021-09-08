@@ -7,10 +7,10 @@ import androidx.room.*
 interface TasksDao {
 
     @Query("SELECT * FROM Tasks")
-    suspend fun observeAllTask(): LiveData<List<Task>>
+    fun observeAllTask(): LiveData<List<Task>>
 
     @Query("SELECT * FROM Tasks WHERE taskid = :taskId")
-    suspend fun observeTaskById(taskId: Long): LiveData<Task>
+    fun observeTaskById(taskId: Long): LiveData<Task>
 
     @Query("SELECT * FROM Tasks")
     suspend fun getAllTask(): List<Task>
@@ -30,6 +30,8 @@ interface TasksDao {
     suspend fun deleteAllTasks()
 
     /**
+     * Delete Completed tasks.
+     * SQLite doesn't have Boolean Type. It's 0 or 1
      * @return the number of tasks deleted.
      */
     @Query("DELETE FROM tasks WHERE completed = 1")
