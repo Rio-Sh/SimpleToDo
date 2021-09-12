@@ -6,8 +6,9 @@ import androidx.lifecycle.map
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class TaskRepository(
+class TaskRepository @Inject constructor(
     private val tasksDao: TasksDao,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
     ) : ITaskRepository {
