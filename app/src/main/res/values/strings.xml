@@ -2,4 +2,6 @@
     <string name="app_name">StudyMyTaskApp</string>
     <string name="title">Title</string>
     <string name="content">Content</string>
+    <string name="tasks_title">tasks</string>
+    <string name="statistics_title">statistics</string>
 </resources>
