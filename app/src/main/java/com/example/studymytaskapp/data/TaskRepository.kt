@@ -10,8 +10,9 @@ import javax.inject.Inject
 
 class TaskRepository @Inject constructor(
     private val tasksDao: TasksDao,
-    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
     ) : ITaskRepository {
+
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 
     override fun observeTasks(): LiveData<Result<List<Task>>> {
         return tasksDao.observeAllTask().map {

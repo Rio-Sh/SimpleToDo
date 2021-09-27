@@ -9,25 +9,4 @@ import androidx.room.RoomDatabase
 abstract class ToDoDatabase : RoomDatabase() {
 
     abstract fun taskDao() : TasksDao
-
-    companion object {
-        // Singleton
-        @Volatile
-        private var INSTANCE: ToDoDatabase? = null
-
-        fun getDatabase(context: Context): ToDoDatabase {
-            // if the INSTANCE is not null, then return it,
-            // if it is, then create the database
-            return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    ToDoDatabase::class.java,
-                    "todo_database"
-                ).build()
-                INSTANCE = instance
-                // return instance
-                instance
-            }
-        }
-    }
 }
