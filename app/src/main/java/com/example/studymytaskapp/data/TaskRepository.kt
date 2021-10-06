@@ -39,11 +39,7 @@ class TaskRepository @Inject constructor(
     override suspend fun getTask(taskId: Long): Result<Task> = withContext(ioDispatcher) {
         try {
             val task = tasksDao.getTaskById(taskId)
-            if(task != null) {
-                return@withContext Result.Success(task)
-            } else {
-                return@withContext Result.Error(Exception("Task not found!"))
-            }
+            return@withContext Result.Success(task)
         } catch (e: Exception) {
             return@withContext Result.Error(e)
         }
