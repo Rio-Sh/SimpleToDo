@@ -13,14 +13,6 @@ class TasksViewModel @Inject constructor(
     private val repository: ITaskRepository
 ): ViewModel() {
 
-    init {
-        viewModelScope.launch {
-            for(i in 1..10) {
-                repository.saveTask(Task(title = "Your Task $i", contents = "task contents"))
-            }
-        }
-    }
-
     private val _taskItems = repository.observeTasks().map { loadTasks(it) }
 
     val taskItems: LiveData<List<Task>>

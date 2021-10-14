@@ -19,5 +19,5 @@ data class Task (
     var isCompleted: Boolean = false,
 
     @ColumnInfo(name = "update_date")
-    var updateData: Long = System.currentTimeMillis()
+    var updateDate: Long = System.currentTimeMillis()
 )

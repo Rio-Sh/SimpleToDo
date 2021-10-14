@@ -26,6 +26,6 @@ class DatabaseModule {
             appContext,
             ToDoDatabase::class.java,
             "TodoDatabase"
-        ).build()
+        ).createFromAsset("database/task_default.db").build()
     }
 }
