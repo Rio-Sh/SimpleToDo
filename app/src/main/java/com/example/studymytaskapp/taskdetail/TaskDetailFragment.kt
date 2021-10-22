@@ -6,23 +6,37 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
 import com.example.studymytaskapp.R
+import com.example.studymytaskapp.databinding.TaskDetailFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class TaskDetailFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = TaskDetailFragment()
-    }
-
     private val viewModel: TaskDetailViewModel by viewModels()
+    private lateinit var binding: TaskDetailFragmentBinding
+    private val args: TaskDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.task_detail_fragment, container, false)
+
+        binding = TaskDetailFragmentBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        viewModel.start(args.taskId)
+        binding.viewModel = viewModel
+
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // TODO Refactor here to be more simple.
+        //Just observe because task is a Cold Observable.
+        viewModel.task.observe(viewLifecycleOwner, Observer {  })
+    }
 }

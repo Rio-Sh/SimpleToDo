@@ -6,19 +6,17 @@ import com.example.studymytaskapp.data.Task
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import com.example.studymytaskapp.data.Result
-import kotlinx.coroutines.launch
 
 @HiltViewModel
 class TasksViewModel @Inject constructor(
     private val repository: ITaskRepository
 ): ViewModel() {
 
-    private val _taskItems = repository.observeTasks().map { loadTasks(it) }
+    private val _taskItems = repository.observeTasks().map { checkLoadResult(it) }
 
-    val taskItems: LiveData<List<Task>>
-        get() = _taskItems
+    val taskItems: LiveData<List<Task>> = _taskItems
 
-    private fun loadTasks(taskListResult: Result<List<Task>>): List<Task> {
+    private fun checkLoadResult(taskListResult: Result<List<Task>>): List<Task> {
         val taskToShow = ArrayList<Task>()
 
         //TODO Create message if loading is failed.
