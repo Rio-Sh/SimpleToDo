@@ -24,9 +24,14 @@ class TaskDetailViewModel @Inject constructor(
     }
     val task: LiveData<Task?> = _task
 
+    private val _navigateToTasksFrag = MutableLiveData<Boolean>()
+    val navigateToTaskFrag = _navigateToTasksFrag
+
     private var isNewTask = false
 
     private var isCompleted = false
+
+
 
     fun start(taskId: Long?) {
         if(taskId == null) {
@@ -54,6 +59,12 @@ class TaskDetailViewModel @Inject constructor(
                 repository.updateTask(task)
             }
         }
+
+        _navigateToTasksFrag.value = true
+    }
+
+    fun doneNavigation() {
+        _navigateToTasksFrag.value = false
     }
 
     private fun onTaskLoad(task: Task) {

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.studymytaskapp.R
 import com.example.studymytaskapp.databinding.TaskDetailFragmentBinding
@@ -26,7 +27,8 @@ class TaskDetailFragment : Fragment() {
 
         binding = TaskDetailFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = this
-        viewModel.start(args.taskId)
+        val taskId = args.taskIdString?.toLongOrNull()
+        viewModel.start(taskId)
         binding.viewModel = viewModel
 
         return binding.root
@@ -38,5 +40,14 @@ class TaskDetailFragment : Fragment() {
         // TODO Refactor here to be more simple.
         //Just observe because task is a Cold Observable.
         viewModel.task.observe(viewLifecycleOwner, Observer {  })
+
+        viewModel.navigateToTaskFrag.observe(viewLifecycleOwner, {
+            navigateToTasks()
+        })
+    }
+
+    private fun navigateToTasks() {
+        val action = TaskDetailFragmentDirections.actionTaskDetailFragmentToTasksFragment()
+        findNavController().navigate(action)
     }
 }
