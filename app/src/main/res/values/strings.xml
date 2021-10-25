@@ -4,4 +4,5 @@
     <string name="content">Content</string>
     <string name="tasks_title">tasks</string>
     <string name="statistics_title">statistics</string>
+    <string name="stats_complete_percent">%.1f%%</string>
 </resources>
