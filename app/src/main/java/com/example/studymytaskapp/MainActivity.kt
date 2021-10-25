@@ -3,7 +3,7 @@ package com.example.studymytaskapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,9 @@ class MainActivity : AppCompatActivity() {
      * Delegate to Navigation.
      */
     override fun onSupportNavigateUp(): Boolean {
-        //val navController = findNavController(R.id.nav_host_fragment)
+
+        //MainActivity doesn't have NavController?
+        //navController = this.findNavController(R.id.nav_host_fragment)
         val navController = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)!!.findNavController()
         return NavigationUI.navigateUp(navController, binding.drawerLayout)
     }
@@ -42,9 +44,11 @@ class MainActivity : AppCompatActivity() {
     private fun setupNavigation() {
         setSupportActionBar(binding.toolbar)
 
-        //val navController = findNavController(R.id.nav_host_fragment)
-        val navController = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)!!.findNavController()
+        //val navController = this.findNavController(R.id.nav_host_fragment)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph, binding.drawerLayout)
+        binding.navView.setupWithNavController(navController)
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 }
