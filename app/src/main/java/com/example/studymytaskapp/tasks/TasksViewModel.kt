@@ -13,7 +13,6 @@ class TasksViewModel @Inject constructor(
 ): ViewModel() {
 
     private val _taskItems = repository.observeTasks().map { checkLoadResult(it) }
-
     val taskItems: LiveData<List<Task>> = _taskItems
 
     private fun checkLoadResult(taskListResult: Result<List<Task>>): List<Task> {
