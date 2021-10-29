@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="buildConfig"
+            type="com.example.studymytaskapp.BuildConfig" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="192dp"
+        android:background="@color/primaryLightColor"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/secondaryColor"
+            android:text="Task TODO "/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="@{@string/version_name(buildConfig.VERSION_NAME)}"
+            tools:text="version: 1.0.0"/>
+
+    </LinearLayout>
+</layout>

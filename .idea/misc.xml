@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/app_info_fragment.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/nav_header.xml" value="0.25" />
         <entry key="app/src/main/res/layout/statistics_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/task_detail_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/tasks_fragment.xml" value="0.335" />
