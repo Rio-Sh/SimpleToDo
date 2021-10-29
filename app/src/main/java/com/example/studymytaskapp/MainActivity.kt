@@ -10,6 +10,8 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.studymytaskapp.databinding.ActivityMainBinding
+import com.example.studymytaskapp.databinding.NavHeaderBinding
+import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,8 +23,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.lifecycleOwner = this
 
         setupNavigation()
+        setupDrawerHeader()
+    }
+
+    /**
+     * To use binding on Drawer header
+     */
+    private fun setupDrawerHeader() {
+        val bind = NavHeaderBinding.inflate(layoutInflater, binding.navView, false).also {
+            it.lifecycleOwner = this
+        }
+        binding.navView.addHeaderView(bind.root)
     }
 
     /**
