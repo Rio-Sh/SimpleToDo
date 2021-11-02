@@ -19,8 +19,11 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:title="toolbar sample"
+                android:minHeight="?attr/actionBarSize"
                 android:background="@color/primaryLightColor"
+                app:title="toolbar sample"
+                android:theme="?attr/actionBarTheme"
+                app:popupTheme="?attr/actionBarPopupTheme"
                 />
 
             <androidx.fragment.app.FragmentContainerView

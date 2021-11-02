@@ -6,4 +6,8 @@
     <string name="statistics_title">statistics</string>
     <string name="stats_complete_percent">%.1f%%</string>
     <string name="version_name">version: %s</string>
+    <string name="menu_filter">Filter</string>
+    <string name="popup_active">Active</string>
+    <string name="popup_completed">Completed</string>
+    <string name="popup_all">All</string>
 </resources>

@@ -13,11 +13,26 @@
         <variable
             name="clickListener"
             type="com.example.studymytaskapp.tasks.TaskListClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.example.studymytaskapp.tasks.TasksViewModel" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="@{() -> clickListener.onClick(task)}">
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.completeTask(task)}"
+            android:checked="@{task.completed}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -25,9 +40,11 @@
             android:layout_width="wrap_content"
             android:layout_height="24dp"
             android:layout_margin="16dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/checkBox"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Title is here"/>
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/checkBox"
+            tools:text="Title is here" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
