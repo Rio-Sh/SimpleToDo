@@ -2,20 +2,20 @@ package com.example.studymytaskapp.tasks
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studymytaskapp.data.Task
 import com.example.studymytaskapp.databinding.TasksListItemBinding
 
-class TasksListAdapter(val clickListener: TaskListClickListener) :
+class TasksListAdapter(private val viewModel: TasksViewModel, val clickListener: TaskListClickListener) :
     ListAdapter<Task, TasksListAdapter.ViewHolder>(TaskDiffCallback()){
 
     class ViewHolder(private var binding: TasksListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(listener: TaskListClickListener, task: Task) {
+        fun bind( viewModel: TasksViewModel, listener: TaskListClickListener, task: Task) {
             binding.task = task
+            binding.viewModel = viewModel
             binding.taskTitle.text = task.title
             binding.clickListener = listener
             binding.executePendingBindings()
@@ -35,7 +35,7 @@ class TasksListAdapter(val clickListener: TaskListClickListener) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(clickListener, getItem(position))
+        holder.bind(viewModel, clickListener, getItem(position))
     }
 }
 

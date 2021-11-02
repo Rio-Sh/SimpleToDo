@@ -70,7 +70,7 @@ class TasksFragment : Fragment() {
     }
 
     private fun setupListAdapter() {
-        val adapter = TasksListAdapter(TaskListClickListener { taskId ->
+        val adapter = TasksListAdapter(viewModel, TaskListClickListener { taskId ->
             val action = TasksFragmentDirections.actionTasksFragmentToTaskDetailFragment(taskId.toString())
             findNavController().navigate(action)
         })

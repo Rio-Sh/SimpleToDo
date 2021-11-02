@@ -6,7 +6,7 @@ import com.example.studymytaskapp.data.Task
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import com.example.studymytaskapp.data.Result
-import java.io.File
+import kotlinx.coroutines.launch
 
 @HiltViewModel
 class TasksViewModel @Inject constructor(
@@ -14,19 +14,27 @@ class TasksViewModel @Inject constructor(
 ): ViewModel() {
 
     private val _filterType =  MutableLiveData(FilterType.ACTIVE_TASK)
-    val filterType: LiveData<FilterType> = _filterType
 
     private val _taskItems = _filterType.switchMap {
         repository.observeTasks().map { checkLoadResult(it) }
     }
     val taskItems: LiveData<List<Task>> = _taskItems
 
-    //init {
-    //    _filterType.value = FilterType.ACTIVE_TASK
-    //}
-
     fun setFilterType(type: FilterType) {
         _filterType.value = type
+    }
+
+    /**
+     * Called on task_list_item checkbox
+     */
+    fun completeTask(task: Task) {
+        viewModelScope.launch {
+            if(task.isCompleted){
+                repository.activateTask(task)
+            } else {
+                repository.completeTask(task)
+            }
+        }
     }
 
     private fun checkLoadResult(taskListResult: Result<List<Task>>): List<Task> {
