@@ -24,7 +24,7 @@
             android:layout_gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/secondaryColor"
-            android:text="Task TODO "/>
+            android:text="@string/task_todo"/>
 
 
         <TextView

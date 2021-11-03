@@ -30,7 +30,8 @@
                 android:layout_margin="16dp"
                 android:inputType="text"
                 android:text="@={viewModel.title}"
-                android:hint="@string/title" />
+                android:hint="@string/title"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/edit_content"
@@ -39,7 +40,8 @@
                 android:layout_margin="16dp"
                 android:inputType="text"
                 android:text="@={viewModel.contents}"
-                android:hint="@string/content"/>
+                android:hint="@string/content"
+                android:autofillHints="" />
 
         </LinearLayout>
 
@@ -53,7 +55,8 @@
             android:onClick="@{() -> viewModel.saveTask()}"
             android:src="@drawable/ic_baseline_edit_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/save_task" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
