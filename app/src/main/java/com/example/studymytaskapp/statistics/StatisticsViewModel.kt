@@ -32,7 +32,7 @@ class StatisticsViewModel @Inject constructor(
                totalTaskSize = numOfTasks,
                activeTaskSize =  numOfActiveTask,
                completedTaskSize = numOfCompleted,
-               completedTaskPercent = 100f * ( numOfCompleted / numOfTasks )
+               completedTaskPercent = 100f * ( numOfCompleted.toFloat() / numOfTasks.toFloat())
            )
        }
     }
