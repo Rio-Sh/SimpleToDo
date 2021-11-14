@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_basic_margin">16dp</dimen>
+    <dimen name="float_button_margin">16dp</dimen>
+    <dimen name="header_height">192dp</dimen>
+    <dimen name="header_padding">16dp</dimen>
+    <dimen name="statistics_fragment_margin">32dp</dimen>
+    <dimen name="list_item_height">24dp</dimen>
+    <dimen name="list_item_margin">16dp</dimen>
+</resources>

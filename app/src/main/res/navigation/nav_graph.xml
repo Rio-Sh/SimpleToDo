@@ -16,9 +16,6 @@
         <action
             android:id="@+id/action_tasksFragment_to_statisticsFragment"
             app:destination="@id/statisticsFragment" />
-        <action
-            android:id="@+id/action_tasksFragment_to_appInfoFragment"
-            app:destination="@id/appInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/taskDetailFragment"
@@ -41,15 +38,6 @@
         tools:layout="@layout/statistics_fragment" >
         <action
             android:id="@+id/action_statisticsFragment_to_tasksFragment"
-            app:destination="@id/tasksFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/appInfoFragment"
-        android:name="com.example.studymytaskapp.appinfo.AppInfoFragment"
-        android:label="app_info_fragment"
-        tools:layout="@layout/app_info_fragment" >
-        <action
-            android:id="@+id/action_appInfoFragment_to_tasksFragment"
             app:destination="@id/tasksFragment" />
     </fragment>
 </navigation>

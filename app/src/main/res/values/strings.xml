@@ -10,4 +10,11 @@
     <string name="popup_active">Active</string>
     <string name="popup_completed">Completed</string>
     <string name="popup_all">All</string>
+    <string name="task_todo">Task TODO</string>
+    <string name="active_task">Active Task</string>
+    <string name="completed_task">Completed Task</string>
+    <string name="completed_percent">Completed percent</string>
+    <string name="save_task">save task</string>
+    <string name="nothing_any_tasks">Nothing any tasks</string>
+    <string name="add_task_icon">add task</string>
 </resources>
