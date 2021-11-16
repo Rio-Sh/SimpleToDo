@@ -17,4 +17,7 @@
     <string name="save_task">save task</string>
     <string name="nothing_any_tasks">Nothing any tasks</string>
     <string name="add_task_icon">add task</string>
+    <string name="tasks_fragment_label">Todo</string>
+    <string name="task_detail_fragment_label">Edit Task</string>
+    <string name="statistics_fragment_label">Statistics</string>
 </resources>
