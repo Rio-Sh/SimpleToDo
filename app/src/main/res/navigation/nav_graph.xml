@@ -12,7 +12,11 @@
         tools:layout="@layout/tasks_fragment" >
         <action
             android:id="@+id/action_tasksFragment_to_taskDetailFragment"
-            app:destination="@id/taskDetailFragment" />
+            app:destination="@id/taskDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_tasksFragment_to_statisticsFragment"
             app:destination="@id/statisticsFragment" />
@@ -24,7 +28,11 @@
         tools:layout="@layout/task_detail_fragment" >
         <action
             android:id="@+id/action_taskDetailFragment_to_tasksFragment"
-            app:destination="@id/tasksFragment" />
+            app:destination="@id/tasksFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <argument
             android:name="taskIdString"
             android:defaultValue="@null"
@@ -38,6 +46,8 @@
         tools:layout="@layout/statistics_fragment" >
         <action
             android:id="@+id/action_statisticsFragment_to_tasksFragment"
-            app:destination="@id/tasksFragment" />
+            app:destination="@id/tasksFragment"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 </navigation>
