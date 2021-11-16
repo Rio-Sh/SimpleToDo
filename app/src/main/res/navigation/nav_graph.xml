@@ -8,11 +8,15 @@
     <fragment
         android:id="@+id/tasksFragment"
         android:name="com.example.studymytaskapp.tasks.TasksFragment"
-        android:label="tasks_fragment"
+        android:label="@string/tasks_fragment_label"
         tools:layout="@layout/tasks_fragment" >
         <action
             android:id="@+id/action_tasksFragment_to_taskDetailFragment"
-            app:destination="@id/taskDetailFragment" />
+            app:destination="@id/taskDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_tasksFragment_to_statisticsFragment"
             app:destination="@id/statisticsFragment" />
@@ -20,11 +24,15 @@
     <fragment
         android:id="@+id/taskDetailFragment"
         android:name="com.example.studymytaskapp.taskdetail.TaskDetailFragment"
-        android:label="task_detail_fragment"
+        android:label="@string/task_detail_fragment_label"
         tools:layout="@layout/task_detail_fragment" >
         <action
             android:id="@+id/action_taskDetailFragment_to_tasksFragment"
-            app:destination="@id/tasksFragment" />
+            app:destination="@id/tasksFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <argument
             android:name="taskIdString"
             android:defaultValue="@null"
@@ -34,10 +42,12 @@
     <fragment
         android:id="@+id/statisticsFragment"
         android:name="com.example.studymytaskapp.statistics.StatisticsFragment"
-        android:label="statistics_fragment"
+        android:label="@string/statistics_fragment_label"
         tools:layout="@layout/statistics_fragment" >
         <action
             android:id="@+id/action_statisticsFragment_to_tasksFragment"
-            app:destination="@id/tasksFragment" />
+            app:destination="@id/tasksFragment"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 </navigation>
