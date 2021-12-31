@@ -47,6 +47,10 @@ class TasksFragment : Fragment() {
                 showFilterPopupMenu()
                 true
             }
+            R.id.menu_clear -> {
+                viewModel.clearAllTasks()
+                true
+            }
             else -> false
         }
 
