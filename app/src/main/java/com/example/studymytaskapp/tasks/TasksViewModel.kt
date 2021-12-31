@@ -6,6 +6,7 @@ import com.example.studymytaskapp.data.Task
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import com.example.studymytaskapp.data.Result
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @HiltViewModel
@@ -22,6 +23,12 @@ class TasksViewModel @Inject constructor(
 
     fun setFilterType(type: FilterType) {
         _filterType.value = type
+    }
+
+    fun clearAllTasks() {
+        viewModelScope.launch {
+            repository.deleteTasks()
+        }
     }
 
     /**
