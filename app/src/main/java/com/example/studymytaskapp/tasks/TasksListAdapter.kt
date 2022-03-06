@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.studymytaskapp.data.Task
 import com.example.studymytaskapp.databinding.TasksListItemBinding
 
+// TODO Refactor the Adapter so that it does't have viewModel. This's bad practice leads to tight-coupling.
 class TasksListAdapter(private val viewModel: TasksViewModel, val clickListener: TaskListClickListener) :
     ListAdapter<Task, TasksListAdapter.ViewHolder>(TaskDiffCallback()){
 
