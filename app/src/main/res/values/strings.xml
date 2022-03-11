@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">StudyMyTaskApp</string>
+    <string name="app_name">Simple ToDo</string>
     <string name="title">Title</string>
     <string name="content">Content</string>
     <string name="tasks_title">tasks</string>
